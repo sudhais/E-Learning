@@ -14,7 +14,7 @@
             <column name="duration" value="25"/>
             <column name="price" value="500"/>
             <column name="rating" value="4.5"/>
-            <column name="trainer" value="Khushhal"/>
+            <column name="trainer" value="Sabeel"/>
         </insert>
 
         <insert tableName="Course">
@@ -24,7 +24,7 @@
             <column name="duration" value="20"/>
             <column name="price" value="0"/>
             <column name="rating" value="5"/>
-            <column name="trainer" value="Khushhal"/>
+            <column name="trainer" value="Sabeel"/>
         </insert>
 
         <insert tableName="Course">
@@ -34,7 +34,7 @@
             <column name="duration" value="15"/>
             <column name="price" value="500"/>
             <column name="rating" value="4"/>
-            <column name="trainer" value="Khushhal"/>
+            <column name="trainer" value="Sabeel"/>
         </insert>
 
         <insert tableName="Course">
@@ -44,7 +44,7 @@
             <column name="duration" value="10"/>
             <column name="price" value="600"/>
             <column name="rating" value="4.5"/>
-            <column name="trainer" value="Khushhal"/>
+            <column name="trainer" value="Sabeel"/>
         </insert>
 
         <insert tableName="Course">
@@ -54,7 +54,7 @@
             <column name="duration" value="5"/>
             <column name="price" value="0"/>
             <column name="rating" value="3.5"/>
-            <column name="trainer" value="Khushhal"/>
+            <column name="trainer" value="Sabeel"/>
         </insert>
 
         <insert tableName="Course">
@@ -64,7 +64,7 @@
             <column name="duration" value="21"/>
             <column name="price" value="200"/>
             <column name="rating" value="4.5"/>
-            <column name="trainer" value="Khushhal"/>
+            <column name="trainer" value="Sabeel"/>
         </insert>
 
         <insert tableName="Course">
@@ -74,7 +74,7 @@
             <column name="duration" value="10"/>
             <column name="price" value="500"/>
             <column name="rating" value="4"/>
-            <column name="trainer" value="Khushhal"/>
+            <column name="trainer" value="Sabeel"/>
         </insert>
 
         <insert tableName="Course">
@@ -84,7 +84,7 @@
             <column name="duration" value="10"/>
             <column name="price" value="900"/>
             <column name="rating" value="5"/>
-            <column name="trainer" value="Khushhal"/>
+            <column name="trainer" value="Sabeel"/>
         </insert>
 
         <insert tableName="Course">
@@ -94,7 +94,7 @@
             <column name="duration" value="10"/>
             <column name="price" value="999"/>
             <column name="rating" value="5"/>
-            <column name="trainer" value="Khushhal"/>
+            <column name="trainer" value="Sabeel"/>
         </insert>
 
         <insert tableName="Course">
@@ -104,7 +104,7 @@
             <column name="duration" value="9"/>
             <column name="price" value="500"/>
             <column name="rating" value="4.5"/>
-            <column name="trainer" value="Khushhal"/>
+            <column name="trainer" value="Sabeel"/>
         </insert>
 
         <insert tableName="Course">
@@ -114,7 +114,7 @@
             <column name="duration" value="7"/>
             <column name="price" value="200"/>
             <column name="rating" value="3.5"/>
-            <column name="trainer" value="Khushhal"/>
+            <column name="trainer" value="Sabeel"/>
         </insert>
 
         <insert tableName="Course">
@@ -124,7 +124,7 @@
             <column name="duration" value="15"/>
             <column name="price" value="800"/>
             <column name="rating" value="5"/>
-            <column name="trainer" value="Khushhal"/>
+            <column name="trainer" value="Sabeel"/>
         </insert>
 
         <insert tableName="Course">
@@ -134,7 +134,7 @@
             <column name="duration" value="2"/>
             <column name="price" value="600"/>
             <column name="rating" value="4.5"/>
-            <column name="trainer" value="Khushhal"/>
+            <column name="trainer" value="Sabeel"/>
         </insert>
 
         <insert tableName="Course">
@@ -144,7 +144,7 @@
             <column name="duration" value="2"/>
             <column name="price" value="999"/>
             <column name="rating" value="4.5"/>
-            <column name="trainer" value="Khushhal"/>
+            <column name="trainer" value="Sabeel"/>
         </insert>
 
     </changeSet>

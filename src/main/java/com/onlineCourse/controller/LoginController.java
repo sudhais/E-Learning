@@ -59,7 +59,7 @@ public class LoginController {
 			emailService.sendEmail(user.getEmail(),
 					"Login Successful",
 					"Dear "+user.getName()+","+"\n\n"
-							+ "Congratulations! You have successfully logged in to Learning Kart.\n\n"
+							+ "Congratulations! You have successfully logged in to S3 Development.\n\n"
 							+ "Thank you for choosing Learning Kart for your learning needs.\n\n"
 							+ "Best regards,\n"
 							+ "The Learning Kart Team ");
