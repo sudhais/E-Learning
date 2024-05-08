@@ -26,12 +26,16 @@ public class TwilioSmsServiceImp implements SmsService {
     @Override
     public void sendSms(SmsRequest smsRequest) {
         if(isPhoneNumberValid(smsRequest.getPhoneNumber())){
+
             PhoneNumber to = new PhoneNumber(smsRequest.getPhoneNumber());
             PhoneNumber from = new PhoneNumber(twilioConfiguration.getTrialNumber());
+            LOGGER.info("from phone {}", from);
+            LOGGER.info("to phone {}", to);
+            LOGGER.info("sms {}", smsRequest);
             String message = smsRequest.getMessage();
             MessageCreator creator = Message.creator(to, from, message);
             creator.create();
-            LOGGER.info("send sms : {}", smsRequest);
+            LOGGER.info("sent sms : {}", smsRequest);
         }else {
             throw new IllegalArgumentException("Phone number [" + smsRequest.getPhoneNumber() + "] is not a valid number");
         }

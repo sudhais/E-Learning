@@ -42,6 +42,7 @@ public class UserController {
         session.setAttribute("user", dbUser);
         model.addAttribute("user", dbUser);
         session.setAttribute("name", dbUser.getName());
+        log.info("dbuser phone {}" + dbUser.getPhoneNumber());
         emailService.sendEmail(dbUser.getEmail(),
                 "Registration Successful",
                 "Dear "+user.getName()+","+"\n\n"
