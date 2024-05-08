@@ -75,6 +75,11 @@ public class CourseServiceImpl implements CourseService {
         fileCourseRepository.deleteById(id);
     }
 
+    @Override
+    public Course getById(int id) {
+        return courseRepository.getById(id);
+    }
+
     private List<Integer> getEnrolledCourseIds(Integer userId) {
         if (userId != null && userId>0) {
             List<CourseEnrollment> courseEnrollmentList = courseEnrollmentRepository.getCourseEnrollmentByUserId(userId);

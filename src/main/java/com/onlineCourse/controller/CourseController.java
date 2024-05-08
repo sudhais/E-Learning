@@ -6,6 +6,7 @@ import com.onlineCourse.entities.CourseEnrollment;
 import com.onlineCourse.entities.User;
 import com.onlineCourse.repository.CourseEnrollmentRepository;
 import com.onlineCourse.service.interfaces.CourseService;
+import com.onlineCourse.service.interfaces.EmailService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ import java.util.List;
 @Controller
 @Slf4j
 public class CourseController {
+
+	@Autowired
+	EmailService emailService;
 
 	@Autowired
 	private CourseEnrollmentRepository courseEnrollmentRepository;
@@ -62,6 +66,18 @@ public class CourseController {
 		courseEnrollment.setUserId(sessionUser.getId());
 		courseEnrollment.setUserName(sessionUser.getName());
 		CourseEnrollment dbEnrollment = courseEnrollmentRepository.save(courseEnrollment);
+
+		Course course = courseService.getById(courseId);
+
+		emailService.sendEmail(
+				sessionUser.getEmail(),
+				"Enrolled Successfully for " + course.getCourseName() + "Course",
+				"Dear "+sessionUser.getName()+","+"\n\n"
+						+ "Congratulations! You have successfully Enrolled to " + course.getCourseName() + " Course.\n\n"
+						+ "Thank you for choosing S3 Developments for your learning needs.\n\n"
+						+ "Best regards,\n"
+						+ "The S3 Developments Team "
+		);
 
 		model.addAttribute("success", sessionUser.getName() + " successfully enrolled for courseId : " + courseId);
 		log.info("success" +  sessionUser.getName() + " successfully enrolled for courseId : " + courseId);
