@@ -134,7 +134,6 @@ cursor:pointer;
 .bg-image {
     color: #000;
     height: 90vh;
-    background-image:url(../image/banner.jpg);
 }
 
 .landing-heading {

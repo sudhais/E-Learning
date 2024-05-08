@@ -10,15 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
 @Data
-@Controller
+@RestController
 @Slf4j
 public class LoginController {
 
@@ -60,9 +57,9 @@ public class LoginController {
 					"Login Successful",
 					"Dear "+user.getName()+","+"\n\n"
 							+ "Congratulations! You have successfully logged in to S3 Development.\n\n"
-							+ "Thank you for choosing Learning Kart for your learning needs.\n\n"
+							+ "Thank you for choosing S3 Developments for your learning needs.\n\n"
 							+ "Best regards,\n"
-							+ "The Learning Kart Team ");
+							+ "The S3 Developments Team ");
 
 			//model.addAttribute("info", "Welcome "+ user.getName() + "!");
 			log.info("Welcome "+ user.getName() + "!");

@@ -12,7 +12,7 @@ import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpSession;
 
-@Controller
+@RestController
 @Slf4j
 public class UserController {
 
@@ -45,10 +45,10 @@ public class UserController {
         emailService.sendEmail(dbUser.getEmail(),
                 "Registration Successful",
                 "Dear "+user.getName()+","+"\n\n"
-                        + "Congratulations! You have successfully Registered to Learning Kart.\n\n"
-                        + "Thank you for choosing Learning Kart for your learning needs.\n\n"
+                        + "Congratulations! You have successfully Registered to S3 Developments.\n\n"
+                        + "Thank you for choosing S3 Developments for your learning needs.\n\n"
                         + "Best regards,\n"
-                        + "The Learning Kart Team ");
+                        + "The S3 Developments Team ");
 //        model.addAttribute("info", "Welcome "+ dbUser.getName() + "!");
 //        model.addAttribute("success", "User registered successfully.");
         log.info("User "+ dbUser.getName() + " successfully Registered.");

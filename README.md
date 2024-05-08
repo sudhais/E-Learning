@@ -1,6 +1,6 @@
-# Learning Kart - Online Learning Platform
+# S3 Developments - Online Learning Platform
 
-Learning Kart is an online learning platform that offers free courses for students. It provides a user-friendly environment for students to sign up, log in, and enroll in courses. Students can access educational materials such as videos and PDFs, update their profiles, and provide feedback on the courses they take. Additionally, the platform offers administrative features, allowing course management, including adding new courses.
+S3 Developments is an online learning platform that offers free courses for students. It provides a user-friendly environment for students to sign up, log in, and enroll in courses. Students can access educational materials such as videos and PDFs, update their profiles, and provide feedback on the courses they take. Additionally, the platform offers administrative features, allowing course management, including adding new courses.
 
 ## Features
 
@@ -26,7 +26,7 @@ Learning Kart is an online learning platform that offers free courses for studen
 
 ## Technology Stack
 
-Learning Kart is developed using a combination of web technologies, including but not limited to:
+S3 Developments is developed using a combination of web technologies, including but not limited to:
 
 - Front-end: HTML, CSS, JavaScript, Bootstrap, Thymeleaf
 - Back-end:  Java, SpringBoot, Lombok, Slf4j, microservices, Liquibase , JPA
@@ -59,16 +59,16 @@ Learning Kart is developed using a combination of web technologies, including bu
 
 ## Project Setup
 
-1. Clone the Learning Kart repository from GitHub.
+1. Clone the S3 Developments repository from GitHub.
 2. Install the necessary dependencies for both the front-end and back-end.
 3. Set up the database and configure the connection details.
 4. Run the development server to launch the platform.
 
 ## How to Contribute
 
-We welcome contributions to Learning Kart. If you have any suggestions, bug fixes, or want to add new features, please follow these steps:
+We welcome contributions to S3 Developments. If you have any suggestions, bug fixes, or want to add new features, please follow these steps:
 
-1. Fork the Learning Kart repository.
+1. Fork the S3 Developments repository.
 2. Create a new branch for your changes.
 3. Commit your changes and push them to your fork.
 4. Submit a pull request describing your changes for review.
@@ -77,11 +77,11 @@ Please ensure your code follows the project's coding guidelines and passes any e
 
 ## Future Enhancements
 
-Learning Kart is an ongoing project, and there are many opportunities for future enhancements, including:
+S3 Developments is an ongoing project, and there are many opportunities for future enhancements, including:
 
 - Adding a paid course option for premium content.
 - Implementing a discussion forum for students to interact.
 - Enhancing the course recommendation system based on user preferences.
 
-Your contributions can make Learning Kart an even better learning platform!
+Your contributions can make S3 Developments an even better learning platform!
 
