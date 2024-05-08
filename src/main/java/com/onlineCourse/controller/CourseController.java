@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Data
-@RestController
+@Controller
 @Slf4j
 public class CourseController {
 

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.util.Objects;
 
 @Data
-@RestController
+@Controller
 @Slf4j
 public class ContactusController {
 
