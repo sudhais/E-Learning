@@ -12,7 +12,7 @@ import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpSession;
 
-@RestController
+@Controller
 @Slf4j
 public class UserController {
 

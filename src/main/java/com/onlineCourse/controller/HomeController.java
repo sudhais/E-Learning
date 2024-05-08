@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @Data
-@RestController
+@Controller
 @Slf4j
 public class HomeController {
 
