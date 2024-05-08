@@ -18,6 +18,11 @@
 							<br>
 							<br>
 							<span th:text="${course.courseName}"></span>
+<!--							<div class="progress mt-3" style="height: 5px; margin: 10px">-->
+<!--								<div class="progress-bar bg-6474cc" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>-->
+<!--							</div>-->
+
+							<h1></h1>
 						</div>
 						<div class="course_info wrap d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
 
@@ -53,10 +58,25 @@
 						<!-- Course Tabs -->
 						<div class="div-relative course_tabs_container">
 							<div class="div-relative wrap d-flex align-items-center justify-content-start">
-								<div class="div-relative tab active">description</div>
-								<div class="div-relative tab">curriculum</div>
-								<div class="div-relative tab">reviews</div>
-								<div class="div-relative tab">Study Material</div>
+								<div class="div-relative tab active">
+									<input type="checkbox" id="descriptionCheckbox" onclick="updateProgressBar()">
+									<label for="descriptionCheckbox">description</label>
+								</div>
+								<div class="div-relative tab">
+									<input type="checkbox" id="curriculumCheckbox" onclick="updateProgressBar()">
+									<label for="curriculumCheckbox">curriculum</label>
+								</div>
+								<div class="div-relative tab">
+									<input type="checkbox" id="reviewsCheckbox" onclick="updateProgressBar()">
+									<label for="reviewsCheckbox">reviews</label>
+								</div>
+								<div class="div-relative tab">
+									<input type="checkbox" id="studyMaterialCheckbox" onclick="updateProgressBar()">
+									<label for="studyMaterialCheckbox">Study Material</label>
+								</div>
+							</div>
+							<div class="progress mt-3" style="height: 5px;">
+								<div id="progressBar" class="progress-bar bg-6474cc" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 							</div>
 							<div class="div-relative tab_panels">
 
@@ -500,3 +520,17 @@
 </section>
 </body>
 </html>
+
+<script>
+	function updateProgressBar() {
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    var completed = 0;
+    checkboxes.forEach(function(checkbox) {
+        if (checkbox.checked) {
+            completed += 100 / checkboxes.length;
+        }
+    });
+    document.getElementById('progressBar').style.width = completed + '%';
+    document.getElementById('progressBar').setAttribute('aria-valuenow', completed);
+}
+</script>

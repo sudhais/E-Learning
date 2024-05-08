@@ -60,9 +60,9 @@ public class LoginController {
 					"Login Successful",
 					"Dear "+user.getName()+","+"\n\n"
 							+ "Congratulations! You have successfully logged in to S3 Development.\n\n"
-							+ "Thank you for choosing Learning Kart for your learning needs.\n\n"
+							+ "Thank you for choosing S3 Developments for your learning needs.\n\n"
 							+ "Best regards,\n"
-							+ "The Learning Kart Team ");
+							+ "The S3 Developments Team ");
 
 			//model.addAttribute("info", "Welcome "+ user.getName() + "!");
 			log.info("Welcome "+ user.getName() + "!");

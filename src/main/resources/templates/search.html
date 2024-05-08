@@ -8,7 +8,13 @@
   </head>
   <body>
   <section class="landing-page bg-image">
-    <h1 class="landing-heading">Welcome to My Learning Platform</h1>
+    <h1 th:style="'margin-bottom: 1rem;font-size: 2.25rem ;
+    line-height: 2.5rem;'" class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Online Education </br>
+
+      <br class="hidden lg:inline-block"> <span style="color:#4055c9">Welcome to My Learning Platform
+</span>
+    </h1>
+<!--    <h1 class="landing-heading"></h1>-->
     <form class="search-bar" action="#" th:action="@{/search}" method="post">
       <input type="text" id="searchText" name="searchText" placeholder="Search Courses" />
       <button th:style="'background-color:white;'" type="submit">

@@ -29,7 +29,7 @@ public class EmailServiceImpl implements EmailService {
 
     private void sendEmailAsync(String toEmail, String subject, String body) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("Learning Kart <learning.kart.23@gmail.com>");
+        message.setFrom("S3 Developments <learning.kart.23@gmail.com>");
         message.setTo(toEmail);
         message.setText(body);
         message.setSubject(subject);
