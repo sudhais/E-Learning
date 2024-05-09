@@ -6,10 +6,12 @@ import com.onlineCourse.entities.CourseEnrollment;
 import com.onlineCourse.entities.SmsRequest;
 import com.onlineCourse.entities.User;
 import com.onlineCourse.repository.CourseEnrollmentRepository;
+import com.onlineCourse.service.impl.NotifySmsServiceImpl;
 import com.onlineCourse.service.interfaces.CourseService;
 import com.onlineCourse.service.interfaces.EmailService;
 import com.onlineCourse.service.interfaces.SmsService;
 import com.onlineCourse.service.interfaces.UserService;
+import liquibase.pro.packaged.N;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +29,6 @@ public class CourseController {
 
 	@Autowired
 	EmailService emailService;
-
-	@Autowired
-	SmsService smsService;
 
 	@Autowired
 	UserService userService;
@@ -98,6 +97,9 @@ public class CourseController {
 		User user = userService.getUserByEmail(sessionUser.getEmail());
 		// sending sms
 		log.info("dest phone {}", user.getPhoneNumber());
+
+//		SmsService smsService = new NotifySmsServiceImpl();
+//
 //		smsService.sendSms(new SmsRequest(
 //				user.getPhoneNumber(),
 //				message
