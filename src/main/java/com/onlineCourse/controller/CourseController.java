@@ -1,10 +1,7 @@
 package com.onlineCourse.controller;
 
 
-import com.onlineCourse.entities.Course;
-import com.onlineCourse.entities.CourseEnrollment;
-import com.onlineCourse.entities.SmsRequest;
-import com.onlineCourse.entities.User;
+import com.onlineCourse.entities.*;
 import com.onlineCourse.repository.CourseEnrollmentRepository;
 import com.onlineCourse.service.impl.NotifySmsServiceImpl;
 import com.onlineCourse.service.interfaces.CourseService;
@@ -15,11 +12,14 @@ import liquibase.pro.packaged.N;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.List;
 
 @Data
@@ -38,6 +38,9 @@ public class CourseController {
 
 	@Autowired
 	private CourseService courseService;
+
+	@Value("${stripe.api.publicKey}")
+	private String publicKey;
 
 	@GetMapping("/courses")
 	public String courses(HttpSession session, Model model) {
@@ -184,6 +187,25 @@ public class CourseController {
 		model.addAttribute("title", "Course Detail");
 		log.info("loading init-course-detail..! course=" + course);
 		return "courses/course-details" ;
+	}
+
+	@RequestMapping(value = "/payment/{id}", method = RequestMethod.GET)
+	public String showCard(HttpSession session,
+						   @PathVariable("id") int courseId,
+						   Model model){
+		User sessionUser = (User) session.getAttribute("user");
+		Course course = courseService.getById(courseId);
+
+		// to skip amount = 0 error
+		if(course.getPrice() < 1){
+			course.setPrice(10);
+		}
+
+		model.addAttribute("publicKey", publicKey);
+		model.addAttribute("amount", course.getPrice());
+		model.addAttribute("email", sessionUser.getEmail());
+		model.addAttribute("courseName", course.getId());
+		return "checkout";
 	}
 
 }

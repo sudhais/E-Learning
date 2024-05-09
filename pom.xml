@@ -103,6 +103,13 @@
 			<scope>compile</scope>
 		</dependency>
 
+<!--		Stripe dependencies-->
+		<dependency>
+			<groupId>com.stripe</groupId>
+			<artifactId>stripe-java</artifactId>
+			<version>22.0.0</version>
+		</dependency>
+
 		<!--Test Dependencies-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
