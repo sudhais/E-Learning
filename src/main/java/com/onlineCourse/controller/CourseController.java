@@ -98,12 +98,12 @@ public class CourseController {
 		// sending sms
 		log.info("dest phone {}", user.getPhoneNumber());
 
-		SmsService smsService = new NotifySmsServiceImpl();
-
-		smsService.sendSms(new SmsRequest(
-				user.getPhoneNumber(),
-				message
-		));
+//		SmsService smsService = new NotifySmsServiceImpl();
+//
+//		smsService.sendSms(new SmsRequest(
+//				user.getPhoneNumber(),
+//				message
+//		));
 
 		model.addAttribute("success", sessionUser.getName() + " successfully enrolled for courseId : " + courseId);
 		log.info("success" +  sessionUser.getName() + " successfully enrolled for courseId : " + courseId);
