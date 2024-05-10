@@ -47,6 +47,10 @@ public class User {
 	@Column(name = "password")
 	private String password;
 
+	@Column(name = "phone_number")
+	@Size(min = 12, max = 12, message = "Phone number must be 12 characters (eg. +94xxxxxxxxx)")
+	private String phoneNumber;
+
 /*
 	@ManyToMany(cascade = {
 			CascadeType.PERSIST,

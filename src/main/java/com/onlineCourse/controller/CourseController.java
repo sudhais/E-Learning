@@ -1,31 +1,46 @@
 package com.onlineCourse.controller;
 
 
-import com.onlineCourse.entities.Course;
-import com.onlineCourse.entities.CourseEnrollment;
-import com.onlineCourse.entities.User;
+import com.onlineCourse.entities.*;
 import com.onlineCourse.repository.CourseEnrollmentRepository;
+import com.onlineCourse.service.impl.NotifySmsServiceImpl;
 import com.onlineCourse.service.interfaces.CourseService;
+import com.onlineCourse.service.interfaces.EmailService;
+import com.onlineCourse.service.interfaces.SmsService;
+import com.onlineCourse.service.interfaces.UserService;
+import liquibase.pro.packaged.N;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.List;
 
 @Data
-@RestController
+@Controller
 @Slf4j
 public class CourseController {
+
+	@Autowired
+	EmailService emailService;
+
+	@Autowired
+	UserService userService;
 
 	@Autowired
 	private CourseEnrollmentRepository courseEnrollmentRepository;
 
 	@Autowired
 	private CourseService courseService;
+
+	@Value("${stripe.api.publicKey}")
+	private String publicKey;
 
 	@GetMapping("/courses")
 	public String courses(HttpSession session, Model model) {
@@ -62,6 +77,36 @@ public class CourseController {
 		courseEnrollment.setUserId(sessionUser.getId());
 		courseEnrollment.setUserName(sessionUser.getName());
 		CourseEnrollment dbEnrollment = courseEnrollmentRepository.save(courseEnrollment);
+
+		Course course = courseService.getById(courseId);
+
+		// sending email
+		emailService.sendEmail(
+				sessionUser.getEmail(),
+				"Enrolled Successfully for " + course.getCourseName() + "Course",
+				"Dear "+sessionUser.getName()+","+"\n\n"
+						+ "Congratulations! You have successfully Enrolled to " + course.getCourseName() + " Course.\n\n"
+						+ "Thank you for choosing S3 Developments for your learning needs.\n\n"
+						+ "Best regards,\n"
+						+ "The S3 Developments Team "
+		);
+
+		String message = "Dear "+sessionUser.getName()+","+" "
+				+ "Congratulations! You have successfully Enrolled to " + course.getCourseName() + " Course. "
+				+ "Thank you for choosing S3 Developments for your learning needs. "
+				+ "Best regards, "
+				+ "The S3 Developments Team ";
+
+		User user = userService.getUserByEmail(sessionUser.getEmail());
+		// sending sms
+		log.info("dest phone {}", user.getPhoneNumber());
+
+//		SmsService smsService = new NotifySmsServiceImpl();
+//
+//		smsService.sendSms(new SmsRequest(
+//				user.getPhoneNumber(),
+//				message
+//		));
 
 		model.addAttribute("success", sessionUser.getName() + " successfully enrolled for courseId : " + courseId);
 		log.info("success" +  sessionUser.getName() + " successfully enrolled for courseId : " + courseId);
@@ -142,6 +187,25 @@ public class CourseController {
 		model.addAttribute("title", "Course Detail");
 		log.info("loading init-course-detail..! course=" + course);
 		return "courses/course-details" ;
+	}
+
+	@RequestMapping(value = "/payment/{id}", method = RequestMethod.GET)
+	public String showCard(HttpSession session,
+						   @PathVariable("id") int courseId,
+						   Model model){
+		User sessionUser = (User) session.getAttribute("user");
+		Course course = courseService.getById(courseId);
+
+		// to skip amount = 0 error
+		if(course.getPrice() < 1){
+			course.setPrice(10);
+		}
+
+		model.addAttribute("publicKey", publicKey);
+		model.addAttribute("amount", course.getPrice());
+		model.addAttribute("email", sessionUser.getEmail());
+		model.addAttribute("courseName", course.getId());
+		return "checkout";
 	}
 
 }
