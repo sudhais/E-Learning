@@ -29,10 +29,10 @@ S3 Developments is an online learning platform that offers free courses for stud
 S3 Developments is developed using a combination of web technologies, including but not limited to:
 
 - Front-end: HTML, CSS, JavaScript, Bootstrap, Thymeleaf
-- Back-end:  Java, SpringBoot, Lombok, Slf4j, microservices, Liquibase , JPA
+- Back-end: Java, SpringBoot, Lombok, Slf4j, microservices, Liquibase , JPA
 - Database: MYSQL
 
-## Snapshots
+<!-- ## Snapshots
 <img width="750" alt="Screenshot 2023-08-17 001717" src="https://github.com/arehman1711/online-course/assets/115952882/c79405c7-c43c-4378-87f7-95b9a1355bda">
 <img width="750" alt="Screenshot 2023-08-17 000330" src="https://github.com/arehman1711/online-course/assets/115952882/2c58ea25-3025-4594-9ecf-7af74601f836">
 <img width="750" alt="Screenshot 2023-08-17 000407" src="https://github.com/arehman1711/online-course/assets/115952882/6b22d8b2-2828-4b51-9bfd-7a1a0f414515">
@@ -47,15 +47,7 @@ S3 Developments is developed using a combination of web technologies, including 
 
 
 <img width="750" alt="Screenshot 2023-07-19 171446" src="https://github.com/arehman1711/online-course/assets/115952882/f941183b-bb84-4fd8-910a-db0de69e2dc2">
-<img width="750" alt="Screenshot 2023-07-19 171500" src="https://github.com/arehman1711/online-course/assets/115952882/7eb7a876-70d5-4837-953a-e5891422a258">
-
-
-
-
-
-
-
-
+<img width="750" alt="Screenshot 2023-07-19 171500" src="https://github.com/arehman1711/online-course/assets/115952882/7eb7a876-70d5-4837-953a-e5891422a258"> -->
 
 ## Project Setup
 
@@ -84,4 +76,3 @@ S3 Developments is an ongoing project, and there are many opportunities for futu
 - Enhancing the course recommendation system based on user preferences.
 
 Your contributions can make S3 Developments an even better learning platform!
-
